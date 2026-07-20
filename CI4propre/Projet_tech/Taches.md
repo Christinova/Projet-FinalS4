@@ -17,3 +17,8 @@ Les Opérations qu'on doit être capable de faire
                   -Même chose retrait[]
                   -Même chose transfers []
                   -On peut voir l'historique[]
+
+
+Page opérateur:
+page déroulente : opérateur: 033 / 037 : On appuie sur 033 -> 033 [suite numéro client]
+page déroulente : différente transaction : transfers, dépôt , retrait
