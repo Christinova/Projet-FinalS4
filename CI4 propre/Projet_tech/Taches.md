@@ -12,4 +12,8 @@
 
 Les Opérations qu'on doit être capable de faire 
 -Voir solde pour le client []
--
+-faire un dépôt : -Avec les frais dans le barem[]
+                  -Pas de code personnelle on envoie tout de suite le dépôt[]
+                  -Même chose retrait[]
+                  -Même chose transfers []
+                  -On peut voir l'historique[]
