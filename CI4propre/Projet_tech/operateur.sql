@@ -9,11 +9,13 @@ CREATE TABLE client (
 CREATE TABLE operateur (
     id_operateur INTEGER PRIMARY KEY AUTOINCREMENT,
     nom TEXT NOT NULL,
-    prefixe TEXT UNIQUE NOT NULL
+    prefixe TEXT UNIQUE NOT NULL,
+    pourcentage_commission REAL 
 );
 
-insert into operateur (nom, prefixe) values ('Orange', '037');
-insert into operateur (nom, prefixe) values ('Airtel', '033');
+insert into operateur (nom, prefixe, pourcentage_commission) values ('Orange', '037', 10);
+insert into operateur (nom, prefixe, pourcentage_commission) values ('Airtel', '033', 10);
+
 CREATE TABLE frais (
     id_frais INTEGER PRIMARY KEY AUTOINCREMENT,
     montant_min REAL NOT NULL,

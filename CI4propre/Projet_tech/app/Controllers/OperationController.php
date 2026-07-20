@@ -150,10 +150,7 @@ class OperationController extends BaseController
                 ->with('error', 'Solde insuffisant pour effectuer ce transfert (montant + frais = ' . $totalADebiter . ' Ar, solde = ' . $solde . ' Ar).');
         }
 
-        // Le transfert est une sortie d'argent : il débite montant + frais
-        // chez l'expéditeur, exactement comme un retrait. Aucun compte
-        // n'est crédité en face ; le numéro du destinataire est conservé
-        // uniquement à titre de trace.
+
         $transactionModel->insert([
             'id_client'           => $idClient,
             'id_operateur'        => session('id_operateur'),

@@ -10,14 +10,15 @@ class TransactionModel extends Model
     protected $primaryKey = 'id_transaction';
 
     protected $allowedFields = [
-        'id_client',
+    'id_client',
     'id_operateur',
     'id_frais',
     'montant',
     'type_transaction',
+    'pourcentage_commission',
     'numero_destinataire',
     'date_transaction'
-    ];
+];
 
     
     public function getTransactions()

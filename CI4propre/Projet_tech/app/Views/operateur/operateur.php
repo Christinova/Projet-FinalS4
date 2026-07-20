@@ -26,44 +26,77 @@
             <div class="form-group">
                 <label>Nom de l'opérateur</label>
 
-                <select name="id_operateur" required>
-                    <option value="">-- Choisir un opérateur --</option>
+            <select name="id_operateur" id="operateur" required>
 
-                    <?php foreach ($operateur as $operateurs): ?>
+                <option value="">-- Choisir un opérateur --</option>
 
-                    <option value="<?= $operateurs['id_operateur'] ?>">
-                        <?= esc($operateurs['nom']) ?>
+                <?php foreach ($operateur as $op): ?>
+
+                    <option
+                        value="<?= $op['id_operateur'] ?>"
+                        data-prefixe="<?= esc($op['prefixe']) ?>">
+
+                        <?= esc($op['nom']) ?>
+
                     </option>
 
-                    <?php endforeach; ?>
+                <?php endforeach; ?>
 
-                </select>
+            </select>
             </div>
 
+               <div class="form-group">
 
+    <label>Préfixe</label>
+
+    <input type="text" id="prefixe" name="prefixe" readonly placeholder="Choisissez un opérateur" required>
+
+</div>
+
+<div class="form-group">
+
+                <label>Numéro de l'opérateur</label>
+
+                <input 
+                    type="text"
+                    name="numero"
+                    maxlength="7"
+                    placeholder="Exemple : 1234567"
+                    required>
+
+            </div>
 
             <div class="form-group">
+                <label>Nom de l'opérateur du client</label>
 
-                <label>Préfixe</label>
+            <select name="id_operateur_client" id="operateur2" required>
 
-                <select name="prefixe" required>
+                <option value="">-- Choisir un opérateur --</option>
 
-                    <option value="">
-                        -- Choisir le préfixe --
+                <?php foreach ($operateur as $op): ?>
+
+                    <option
+                        value="<?= $op['id_operateur'] ?>"
+                        data-prefixe="<?= esc($op['prefixe']) ?>">
+
+                        <?= esc($op['nom']) ?>
+
                     </option>
 
+                <?php endforeach; ?>
 
-                    <?php foreach ($operateur as $operateurs): ?>
-
-                    <option value="<?= $operateurs['prefixe'] ?>">
-                        <?= esc($operateurs['prefixe']) ?>
-                    </option>
-
-                    <?php endforeach; ?>
-
-                </select>
-
+            </select>
             </div>
+
+
+
+           <div class="form-group">
+
+    <label>Préfixe</label>
+
+    <input type="text" id="prefixe2" name="prefixe2" readonly placeholder="Choisissez un opérateur" required>
+
+</div>
 
 
 
@@ -123,6 +156,13 @@
             <button class="btn">
                 Valider la transaction
             </button>
+            <button class="btn2">
+                    <a href="<?= site_url('historique') ?>" class="btn operateur">
+
+                Historique des transactions
+                </a>
+            </button>
+        
 
 
         </form>
@@ -132,7 +172,31 @@
 
 
 </div>
+<script>
 
+    const operateur = document.getElementById("operateur");
+    const prefixe = document.getElementById("prefixe");
+
+    operateur.addEventListener("change", function () {
+
+        const option = this.options[this.selectedIndex];
+
+        prefixe.value = option.dataset.prefixe || "";
+
+});
+
+    const operateur2 = document.getElementById("operateur2");
+    const prefixe2 = document.getElementById("prefixe2");
+
+    operateur2.addEventListener("change", function () {
+
+        const option = this.options[this.selectedIndex];
+
+        prefixe2.value = option.dataset.prefixe || "";
+
+});
+
+</script>
 
 </body>
 </html>

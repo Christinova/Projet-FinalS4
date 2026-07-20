@@ -14,4 +14,8 @@ class HistoriqueTransaction extends BaseController
 
         return view('operateur/historique', $data);
     }
+
+    public function commission()
+    {
+    }
 }

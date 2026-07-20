@@ -27,6 +27,7 @@ class OperateurController extends BaseController
     $clientModel = new ClientModel();
     $transactionModel = new TransactionModel();
     $fraisModel = new FraisModel();
+    $operateurModel = new OperateurModel();
 
     $numero = $this->request->getPost('prefixe') 
             . $this->request->getPost('numero');
@@ -36,7 +37,12 @@ class OperateurController extends BaseController
 
     // récupération opérateur
     $idOperateur = $this->request->getPost('id_operateur');
+$operateur = $operateurModel->find($idOperateur);
 
+if (!$operateur) {
+    return redirect()->back()
+        ->with('error', 'Opérateur introuvable');
+}
 
     // Recherche ou création du client
     $client = $clientModel
@@ -72,18 +78,22 @@ class OperateurController extends BaseController
             ->with('error','Aucun frais trouvé pour ce montant');
     }
 
+$idFrais = $frais['id_frais'];
 
-    $idFrais = $frais['id_frais'];
+$fraistransaction = (float) $frais['frais'];
+$commission = (float) $operateur['pourcentage_commission'];
 
+$pourcentage_commission = ($fraistransaction * $commission) / 100;
 
     // Insertion transaction
-    $transactionModel->insert([
-        'id_client' => $idClient,
-        'id_operateur' => $idOperateur,
-        'id_frais' => $idFrais,
-        'montant' => $montant,
-        'type_transaction' => $type
-    ]);
+   $transactionModel->insert([
+    'id_client' => $idClient,
+    'id_operateur' => $idOperateur,
+    'id_frais' => $idFrais,
+    'montant' => $montant,
+    'type_transaction' => $type,
+    'pourcentage_commission' => $pourcentage_commission
+]);
 
 
     return redirect()->to('/historique');
