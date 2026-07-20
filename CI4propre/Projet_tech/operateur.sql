@@ -20,7 +20,7 @@ CREATE TABLE operateur (
     numero_telephone TEXT UNIQUE NOT NULL
 );
 
-CREATE TABLE transaction (
+CREATE TABLE "transaction" (
     id_transaction INTEGER PRIMARY KEY AUTOINCREMENT,
     id_client INTEGER NOT NULL,
     montant REAL NOT NULL,

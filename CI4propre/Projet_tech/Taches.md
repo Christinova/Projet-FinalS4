@@ -22,3 +22,29 @@ Les Opérations qu'on doit être capable de faire
 Page opérateur:
 page déroulente : opérateur: 033 / 037 : On appuie sur 033 -> 033 [suite numéro client]
 page déroulente : différente transaction : transfers, dépôt , retrait
+
+
+Pour se connecter à SQLIte3
+
+public array $default = [
+    'DSN'      => '',
+    'hostname' => '',
+    'username' => '',
+    'password' => '',
+    'database' => WRITEPATH . 'operateur.db', // chemin vers ton fichier .db
+    'DBDriver' => 'SQLite3',
+    'DBPrefix' => '',
+    'pConnect' => false,
+    'DBDebug'  => true,
+    'charset'  => 'utf8',
+    'DBCollat' => '',
+    ];
+
+
+cd CI4propre/Projet_tech
+mkdir -p writable/database
+sqlite3 writable/database/operateur.db < operateur.sql
+
+
+si tu veux supprimer la base de donnée 
+-> rm writable/database/operateur.db
