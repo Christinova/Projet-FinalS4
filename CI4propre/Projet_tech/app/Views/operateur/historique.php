@@ -47,6 +47,7 @@
                     <th>Montant</th>
                     <th>Type</th>
                     <th>Frais</th>
+                    <th>Commission</th>
                     <th>Date</th>
 
                 </tr>
@@ -106,6 +107,9 @@
                         <?= esc($transaction['frais']) ?> Ar
                     </td>
 
+                    <td>
+                        <?= esc($transaction['pourcentage_commission']) ?> Ar
+                    </td>
 
                     <td>
                         <?= esc($transaction['date_transaction']) ?>

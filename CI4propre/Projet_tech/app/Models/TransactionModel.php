@@ -17,43 +17,24 @@ class TransactionModel extends Model
         'type_transaction',
         'numero_destinataire',
         'frais_inclus',
+        'pourcentage_commission',
+        'numero_destinataire',
         'date_transaction'
     ];
 
     public function getTransactions()
     {
-        return $this->select(
-            'transaction.*,
-            client.nom,
-            client.numero,
-            operateur.nom as operateur,
-            frais.frais'
-        )
-        ->join('client', 'client.id_client = transaction.id_client')
-        ->join('operateur', 'operateur.id_operateur = transaction.id_operateur')
-        ->join('frais', 'frais.id_frais = transaction.id_frais')
-        ->findAll();
-    }
-
-    /**
-     * Historique des transactions d'un seul client (espace client),
-     * du plus récent au plus ancien.
-     */
-    public function getHistoriqueClient(int $idClient)
-    {
-        return $this->select(
-            'transaction.*,
-            client.nom,
-            client.numero,
-            operateur.nom as operateur,
-            frais.frais'
-        )
-        ->join('client', 'client.id_client = transaction.id_client')
-        ->join('operateur', 'operateur.id_operateur = transaction.id_operateur')
-        ->join('frais', 'frais.id_frais = transaction.id_frais')
-        ->where('transaction.id_client', $idClient)
-        ->orderBy('transaction.date_transaction', 'DESC')
-        ->findAll();
+        return $this->select("
+                transaction.*,
+                client.nom,
+                client.numero,
+                operateur.nom AS operateur,
+                frais.frais
+            ")
+            ->join('client', 'client.id_client = transaction.id_client')
+            ->join('operateur', 'operateur.id_operateur = transaction.id_operateur')
+            ->join('frais', 'frais.id_frais = transaction.id_frais')
+            ->findAll();
     }
 
     public function getSoldeClient(int $idClient): float
@@ -87,4 +68,43 @@ class TransactionModel extends Model
 
         return $totalDepot - $totalSorties;
     }
+
+    public function getSituationOperateur($idOperateur)
+    {
+        return $this->select("
+                transaction.*,
+                client.nom,
+                client.numero,
+                operateur.nom AS operateur,
+                frais.frais
+            ")
+            ->join('client', 'client.id_client = transaction.id_client')
+            ->join('operateur', 'operateur.id_operateur = transaction.id_operateur')
+            ->join('frais', 'frais.id_frais = transaction.id_frais')
+            ->where('transaction.id_operateur', $idOperateur)
+            ->findAll();
+    }
+
+    public function totalFrais($idOperateur)
+    {
+        return $this->selectSum('frais.frais', 'total')
+            ->join('frais', 'frais.id_frais = transaction.id_frais')
+            ->where('transaction.id_operateur', $idOperateur)
+            ->first();
+    }
+
+    public function totalCommission($idOperateur)
+    {
+        return $this->selectSum('pourcentage_commission', 'total')
+            ->where('transaction.id_operateur', $idOperateur)
+            ->first();
+    }
+
+   public function totalMontant($idOperateur)
+{
+    return $this->selectSum('transaction.montant', 'total')
+        ->where('transaction.id_operateur', $idOperateur)
+        ->first();
+}
+    
 }

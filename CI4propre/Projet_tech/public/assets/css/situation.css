@@ -1,0 +1,297 @@
+/* ==============================
+   Situation des gains opérateur
+   ============================== */
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+
+body {
+
+    min-height: 100vh;
+    background: linear-gradient(
+        135deg,
+        #0b132b,
+        #1c1b4b,
+        #5b2a86
+    );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px;
+
+}
+
+
+
+/* Conteneur principal */
+
+.container {
+
+    width: 90%;
+    max-width: 1100px;
+
+}
+
+
+
+/* Carte */
+
+.card {
+
+    background: rgba(255,255,255,0.95);
+
+    border-radius: 20px;
+
+    padding: 35px;
+
+    box-shadow: 
+        0 15px 40px rgba(0,0,0,0.35);
+
+}
+
+
+
+/* Titre */
+
+h1 {
+
+    text-align: center;
+
+    color: #a3acbe;
+
+    margin-bottom: 10px;
+
+}
+
+
+
+.subtitle {
+
+    text-align: center;
+
+    color: #6b7280;
+
+    margin-bottom: 30px;
+
+}
+
+
+
+/* Formulaire */
+
+
+form {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-bottom: 30px;
+
+}
+
+
+
+select {
+
+    padding: 12px 20px;
+
+    border-radius: 10px;
+
+    border: 2px solid #5b2a86;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    min-width: 220px;
+
+}
+
+
+
+button {
+
+    background: linear-gradient(
+        135deg,
+        #1e3a8a,
+        #7c3aed
+    );
+
+    color:white;
+
+    border:none;
+
+    padding:12px 25px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    transition:0.3s;
+
+}
+
+
+
+button:hover {
+
+    transform: translateY(-2px);
+
+    opacity:0.9;
+
+}
+
+
+
+/* Tableau */
+
+
+table {
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin-top:20px;
+
+    overflow:hidden;
+
+    border-radius:15px;
+
+}
+
+
+
+thead {
+
+    background:#111827;
+
+    color:white;
+
+}
+
+
+
+th {
+
+    padding:15px;
+
+    text-align:center;
+
+}
+
+
+
+td {
+
+    padding:12px;
+
+    text-align:center;
+
+    border-bottom:1px solid #ddd;
+
+}
+
+
+
+tbody tr:hover {
+
+    background:#f3e8ff;
+
+}
+
+
+
+/* Badge type transaction */
+
+
+td:nth-child(4) {
+
+    color:#5b2a86;
+
+    font-weight:bold;
+
+}
+
+
+
+/* Cartes des totaux */
+
+
+h3 {
+
+    margin-top:20px;
+
+    background:linear-gradient(
+        135deg,
+        #eef2ff,
+        #f3e8ff
+    );
+
+    padding:18px;
+
+    border-radius:15px;
+
+    color:#312e81;
+
+    text-align:center;
+
+}
+
+
+
+/* Message vide */
+
+
+p {
+
+    text-align:center;
+
+    color:#6b7280;
+
+    font-size:18px;
+
+}
+
+
+
+/* Responsive */
+
+
+@media(max-width:700px){
+
+
+    form {
+
+        flex-direction:column;
+
+    }
+
+
+    table {
+
+        font-size:13px;
+
+    }
+
+
+    .card {
+
+        padding:20px;
+
+    }
+
+}

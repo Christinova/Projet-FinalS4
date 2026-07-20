@@ -1,0 +1,351 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    background: linear-gradient(
+        135deg,
+        #0b132b,
+        #1e1b4b,
+        #6b21a8
+    );
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 40px;
+
+}
+
+
+
+/* Conteneur */
+
+.container {
+
+    width: 90%;
+
+    max-width: 1200px;
+
+}
+
+
+
+/* Carte principale */
+
+.card {
+
+    background: rgba(255,255,255,0.96);
+
+    border-radius: 20px;
+
+    padding: 35px;
+
+    box-shadow:
+    0 20px 40px rgba(0,0,0,0.35);
+
+}
+
+
+
+/* Titre */
+
+h1 {
+
+    text-align:center;
+
+    color:#111827;
+
+    margin-bottom:10px;
+
+}
+
+
+
+.subtitle {
+
+    text-align:center;
+
+    color:#6b7280;
+
+    margin-bottom:30px;
+
+}
+
+
+
+/* Formulaire */
+
+
+form {
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    margin-bottom:30px;
+
+}
+
+
+
+select {
+
+    min-width:250px;
+
+    padding:12px 18px;
+
+    border-radius:10px;
+
+    border:2px solid #6d28d9;
+
+    font-size:15px;
+
+}
+
+
+
+button {
+
+    padding:12px 25px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:linear-gradient(
+        135deg,
+        #1e3a8a,
+        #7c3aed
+    );
+
+    color:white;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+}
+
+
+
+button:hover {
+
+    transform:translateY(-2px);
+
+}
+
+
+
+/* Tableau */
+
+
+table {
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin-top:20px;
+
+    overflow:hidden;
+
+    border-radius:15px;
+
+}
+
+
+
+thead {
+
+    background:#111827;
+
+    color:white;
+
+}
+
+
+
+th {
+
+    padding:15px;
+
+}
+
+
+
+td {
+
+    padding:12px;
+
+    text-align:center;
+
+    border-bottom:1px solid #ddd;
+
+}
+
+
+
+tbody tr:hover {
+
+    background:#f3e8ff;
+
+}
+
+
+
+/* Type transaction */
+
+
+.badge {
+
+    background:#ede9fe;
+
+    color:#6b21a8;
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    font-weight:bold;
+
+}
+
+
+
+/* Montant */
+
+
+.montant {
+
+    font-weight:bold;
+
+    color:#1e3a8a;
+
+}
+
+
+
+/* Total */
+
+
+.total {
+
+    margin-top:30px;
+
+    padding:20px;
+
+    text-align:center;
+
+    border-radius:15px;
+
+    background:linear-gradient(
+        135deg,
+        #eef2ff,
+        #f3e8ff
+    );
+
+    color:#312e81;
+
+    font-size:20px;
+
+}
+
+
+
+.total strong {
+
+    font-size:24px;
+
+}
+
+
+
+/* Message vide */
+
+
+.empty {
+
+    text-align:center;
+
+    margin-top:30px;
+
+    color:#6b7280;
+
+    font-size:18px;
+
+}
+
+
+
+/* Bouton retour */
+
+
+.btn {
+
+    display:inline-block;
+
+    margin-top:25px;
+
+    padding:12px 25px;
+
+    background:#111827;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:10px;
+
+}
+
+
+
+.btn:hover {
+
+    background:#4c1d95;
+
+}
+
+
+
+/* Responsive */
+
+@media(max-width:700px){
+
+
+    form {
+
+        flex-direction:column;
+
+    }
+
+
+    table {
+
+        font-size:12px;
+
+    }
+
+
+    .card {
+
+        padding:20px;
+
+    }
+
+}
