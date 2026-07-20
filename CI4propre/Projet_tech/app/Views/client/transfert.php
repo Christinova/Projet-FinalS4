@@ -23,15 +23,42 @@
 
         <form action="<?= site_url('client/transfert') ?>" method="post">
 
+                    <div class="form-group">
+                <label>Destinataires</label>
+
+                <div id="liste-destinataires">
+
+                    <div class="destinataire">
+                        <input
+                            type="text"
+                            name="numeros[]"
+                            class="numero"
+                            placeholder="Numéro"
+                            required>
+
+                        <button type="button" class="supprimer">
+                            ✖
+                        </button>
+                    </div>
+
+                </div>
+
+                <button type="button" id="ajouter">
+                    + Ajouter un destinataire
+                </button>
+            </div>
+
             <div class="form-group">
-                <label>Numéro du destinataire</label>
+                <label>Montant total</label>
+
                 <input
-                    type="text"
-                    name="numero_destinataire"
-                    placeholder="Exemple : 0331234567"
-                    value="<?= esc(old('numero_destinataire')) ?>"
+                    type="number"
+                    id="montant"
+                    name="montant"
                     required>
             </div>
+
+            <p id="resume"></p>
 
             <div class="form-group">
                 <label>Montant (Ar)</label>
@@ -55,5 +82,77 @@
 
 </div>
 
+<script>
+
+const liste = document.getElementById("liste-destinataires");
+const ajouter = document.getElementById("ajouter");
+const montant = document.getElementById("montant");
+const resume = document.getElementById("resume");
+
+function mettreAJourResume(){
+
+    const nb = document.querySelectorAll(".numero").length;
+
+    const total = parseFloat(montant.value || 0);
+
+    if(nb == 0){
+        resume.innerHTML = "";
+        return;
+    }
+
+    const part = Math.floor(total / nb);
+
+    resume.innerHTML =
+        "<strong>"+nb+"</strong> destinataire(s)<br>" +
+        "≈ <strong>"+part.toLocaleString()+" Ar</strong> chacun";
+
+}
+
+ajouter.onclick = function(){
+
+    const ligne = document.createElement("div");
+
+    ligne.className = "destinataire";
+
+    ligne.innerHTML = `
+        <input
+            type="text"
+            name="numeros[]"
+            class="numero"
+            placeholder="Numéro"
+            required>
+
+        <button
+            type="button"
+            class="supprimer">
+            ✖
+        </button>
+    `;
+
+    liste.appendChild(ligne);
+
+    mettreAJourResume();
+
+};
+
+document.addEventListener("click", function(e){
+
+    if(e.target.classList.contains("supprimer")){
+
+        if(document.querySelectorAll(".destinataire").length > 1){
+
+            e.target.parentElement.remove();
+
+            mettreAJourResume();
+
+        }
+
+    }
+
+});
+
+document.addEventListener("input", mettreAJourResume);
+
+</script>
 </body>
 </html>

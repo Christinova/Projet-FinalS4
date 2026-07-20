@@ -93,6 +93,18 @@ select:focus {
     background: #ddd;
 }
 
+.form-check label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: normal;
+    color: #25264a;
+}
+
+.form-check input[type="checkbox"] {
+    width: auto;
+}
+
 /* Alertes */
 
 .alert {
@@ -198,4 +210,64 @@ select:focus {
 
 .back-link:hover {
     text-decoration: underline;
+}
+
+.destinataire{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-bottom:10px;
+
+}
+
+.destinataire input{
+
+    flex:1;
+
+}
+
+.supprimer{
+
+    background:#dc3545;
+
+    color:white;
+
+    border:none;
+
+    padding:10px 15px;
+
+    cursor:pointer;
+
+    border-radius:5px;
+
+}
+
+#ajouter{
+
+    margin-top:10px;
+
+    background:#0d6efd;
+
+    color:white;
+
+    border:none;
+
+    padding:10px 20px;
+
+    border-radius:5px;
+
+    cursor:pointer;
+
+}
+
+#resume{
+
+    margin-top:20px;
+
+    font-weight:bold;
+
+    color:#0d6efd;
+
 }

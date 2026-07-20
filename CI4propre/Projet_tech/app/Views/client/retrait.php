@@ -15,7 +15,7 @@
     <div class="card">
 
         <h1>Retrait</h1>
-        <p class="subtitle">Montant + frais seront débités de votre solde</p>
+        <p class="subtitle">Choisissez si vous payez les frais</p>
 
         <?php if (session()->getFlashdata('error')) : ?>
             <div class="alert alert-error"><?= esc(session()->getFlashdata('error')) ?></div>
@@ -33,6 +33,13 @@
                     placeholder="Exemple : 5000"
                     value="<?= esc(old('montant')) ?>"
                     required>
+            </div>
+
+            <div class="form-group form-check">
+                <label>
+                    <input type="checkbox" name="payer_frais" value="1" checked>
+                    Payer les frais (décochez pour les frais offerts)
+                </label>
             </div>
 
             <button type="submit" class="btn">Valider le retrait</button>

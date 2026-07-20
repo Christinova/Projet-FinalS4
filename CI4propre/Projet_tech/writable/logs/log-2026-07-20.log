@@ -89,3 +89,69 @@ in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
  8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
  9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
 10 SYSTEMPATH/rewrite.php(44): require_once('/home/sharon/Documents/00/Projet-FinalS4/CI4propre/Projet_tech/public/index.php')
+CRITICAL - 2026-07-20 12:03:02 --> ParseError: syntax error, unexpected token "<", expecting "function"
+[Method: GET, Route: client/retrait]
+in APPPATH/Controllers/Client/OperationController.php on line 19.
+ 1 VENDORPATH/composer/ClassLoader.php(427): Composer\Autoload\{closure}()
+ 2 [internal function]: Composer\Autoload\ClassLoader->loadClass()
+ 3 SYSTEMPATH/Router/Router.php(792): class_exists()
+ 4 SYSTEMPATH/Router/Router.php(230): CodeIgniter\Router\Router->processRouteAttributes()
+ 5 SYSTEMPATH/CodeIgniter.php(829): CodeIgniter\Router\Router->handle()
+ 6 SYSTEMPATH/CodeIgniter.php(441): CodeIgniter\CodeIgniter->tryToRouteIt()
+ 7 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH/rewrite.php(44): require_once('/home/sharon/Documents/00/Projet-FinalS4/CI4propre/Projet_tech/public/index.php')
+CRITICAL - 2026-07-20 12:03:22 --> ParseError: syntax error, unexpected token "<", expecting "function"
+[Method: GET, Route: client/depot]
+in APPPATH/Controllers/Client/OperationController.php on line 19.
+ 1 VENDORPATH/composer/ClassLoader.php(427): Composer\Autoload\{closure}()
+ 2 [internal function]: Composer\Autoload\ClassLoader->loadClass()
+ 3 SYSTEMPATH/Router/Router.php(792): class_exists()
+ 4 SYSTEMPATH/Router/Router.php(230): CodeIgniter\Router\Router->processRouteAttributes()
+ 5 SYSTEMPATH/CodeIgniter.php(829): CodeIgniter\Router\Router->handle()
+ 6 SYSTEMPATH/CodeIgniter.php(441): CodeIgniter\CodeIgniter->tryToRouteIt()
+ 7 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH/rewrite.php(44): require_once('/home/sharon/Documents/00/Projet-FinalS4/CI4propre/Projet_tech/public/index.php')
+CRITICAL - 2026-07-20 12:09:18 --> ErrorException: Cannot redeclare App\Controllers\Client\OperationController::depotAction()
+[Method: GET, Route: client/depot]
+in APPPATH/Controllers/Client/OperationController.php on line 165.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-07-20 12:09:18 --> ErrorException: Cannot redeclare App\Controllers\Client\OperationController::depotAction()
+[Method: GET, Route: client/depot]
+in APPPATH/Controllers/Client/OperationController.php on line 165.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-07-20 12:09:19 --> ErrorException: Cannot redeclare App\Controllers\Client\OperationController::depotAction()
+[Method: GET, Route: client/depot]
+in APPPATH/Controllers/Client/OperationController.php on line 165.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-07-20 12:09:27 --> ErrorException: Cannot redeclare App\Controllers\Client\OperationController::depotAction()
+[Method: GET, Route: client/retrait]
+in APPPATH/Controllers/Client/OperationController.php on line 165.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-07-20 12:34:16 --> TypeError: trim(): Argument #1 ($string) must be of type string, array given
+[Method: POST, Route: client/transfert]
+in APPPATH/Controllers/Client/OperationController.php on line 119.
+ 1 APPPATH/Controllers/Client/OperationController.php(119): trim()
+ 2 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Client\OperationController->transfertAction()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/sharon/Documents/00/Projet-FinalS4/CI4propre/Projet_tech/public/index.php')
+CRITICAL - 2026-07-20 12:37:35 --> TypeError: trim(): Argument #1 ($string) must be of type string, array given
+[Method: POST, Route: client/transfert]
+in APPPATH/Controllers/Client/OperationController.php on line 119.
+ 1 APPPATH/Controllers/Client/OperationController.php(119): trim()
+ 2 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Client\OperationController->transfertAction()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/sharon/Documents/00/Projet-FinalS4/CI4propre/Projet_tech/public/index.php')

@@ -36,6 +36,8 @@ CREATE TABLE "transaction" (
     montant REAL NOT NULL,
 
     numero_destinataire TEXT,
+    
+    frais_inclus INTEGER NOT NULL DEFAULT 1,
 
     date_transaction TEXT DEFAULT CURRENT_TIMESTAMP,
 

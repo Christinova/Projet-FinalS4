@@ -17,6 +17,11 @@ Cote Client [Sharon]
                   -Même chose retrait[ok]
                   -Même chose transfers [ok]
                   -On peut voir l'historique[ok]
+-Configuration des préfixes valable pour les autres opérateurs (ex: 032 et 031, …)
+Configuration % en plus de commissions pour les transferts vers les autres opérateurs
+
+
+
 
 Pour se connecter à SQLIte3
 
