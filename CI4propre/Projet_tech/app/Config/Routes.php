@@ -11,7 +11,8 @@ $routes->get('/', 'AccueilController::index');
 $routes->get('operateur', 'OperateurController::index');
 $routes->post('operateur/ajouter', 'OperateurController::ajouter');
 $routes->get('historique', 'HistoriqueTransaction::index');
-
+$routes->get('situation', 'SituationController::index');
+$routes->get('situation_montant', 'SituationMontantController::index');
 
 $routes->get('client/login', 'Client\AuthController::login');
 $routes->post('client/login', 'Client\AuthController::loginAction');
@@ -31,4 +32,5 @@ $routes->group('client', ['filter' => 'clientauth'], static function ($routes) {
     $routes->post('transfert', 'Client\OperationController::transfertAction');
 
     $routes->get('historique', 'Client\HistoriqueController::index');
+
 });

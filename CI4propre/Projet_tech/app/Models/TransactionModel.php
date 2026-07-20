@@ -10,84 +10,84 @@ class TransactionModel extends Model
     protected $primaryKey = 'id_transaction';
 
     protected $allowedFields = [
-    'id_client',
-    'id_operateur',
-    'id_frais',
-    'montant',
-    'type_transaction',
-    'pourcentage_commission',
-    'numero_destinataire',
-    'date_transaction'
-];
+        'id_client',
+        'id_operateur',
+        'id_frais',
+        'montant',
+        'type_transaction',
+        'pourcentage_commission',
+        'numero_destinataire',
+        'date_transaction'
+    ];
 
-    
     public function getTransactions()
-{
-    return $this->select(
-        'transaction.*,
-        client.nom,
-        client.numero,
-        operateur.nom as operateur,
-        frais.frais'
-    )
-    ->join('client', 'client.id_client = transaction.id_client')
-    ->join('operateur', 'operateur.id_operateur = transaction.id_operateur')
-    ->join('frais', 'frais.id_frais = transaction.id_frais')
-    ->findAll();
-}
-
-    /**
-     * Historique des transactions d'un seul client (espace client),
-     * du plus récent au plus ancien.
-     */
-    public function getHistoriqueClient(int $idClient)
     {
-        return $this->select(
-            'transaction.*,
-            client.nom,
-            client.numero,
-            operateur.nom as operateur,
-            frais.frais'
-        )
-        ->join('client', 'client.id_client = transaction.id_client')
-        ->join('operateur', 'operateur.id_operateur = transaction.id_operateur')
-        ->join('frais', 'frais.id_frais = transaction.id_frais')
-        ->where('transaction.id_client', $idClient)
-        ->orderBy('transaction.date_transaction', 'DESC')
-        ->findAll();
+        return $this->select("
+                transaction.*,
+                client.nom,
+                client.numero,
+                operateur.nom AS operateur,
+                frais.frais
+            ")
+            ->join('client', 'client.id_client = transaction.id_client')
+            ->join('operateur', 'operateur.id_operateur = transaction.id_operateur')
+            ->join('frais', 'frais.id_frais = transaction.id_frais')
+            ->findAll();
     }
 
-    /**
-     * Calcule le solde d'un client à partir de son historique :
-     *  - dépôt      : crédite le montant en entier (pas de frais déduits du client)
-     *  - retrait    : débite montant + frais
-     *  - transfert  : débite montant + frais (sortie, comme un retrait)
-     */
-    public function getSoldeClient(int $idClient): float
+    public function getHistoriqueClient($idClient)
     {
-        $db = \Config\Database::connect();
-
-        $totalDepot = (float) ($db->table('transaction')
-            ->selectSum('montant')
-            ->where('id_client', $idClient)
-            ->where('type_transaction', 'depot')
-            ->get()
-            ->getRow('montant') ?? 0);
-
-        $sorties = $db->table('transaction')
-            ->select('transaction.montant, frais.frais')
+        return $this->select("
+                transaction.*,
+                client.nom,
+                client.numero,
+                operateur.nom AS operateur,
+                frais.frais
+            ")
+            ->join('client', 'client.id_client = transaction.id_client')
+            ->join('operateur', 'operateur.id_operateur = transaction.id_operateur')
             ->join('frais', 'frais.id_frais = transaction.id_frais')
             ->where('transaction.id_client', $idClient)
-            ->whereIn('transaction.type_transaction', ['retrait', 'transfert'])
-            ->get()
-            ->getResultArray();
-
-        $totalSorties = 0.0;
-
-        foreach ($sorties as $sortie) {
-            $totalSorties += (float) $sortie['montant'] + (float) $sortie['frais'];
-        }
-
-        return $totalDepot - $totalSorties;
+            ->orderBy('transaction.date_transaction', 'DESC')
+            ->findAll();
     }
+
+    public function getSituationOperateur($idOperateur)
+    {
+        return $this->select("
+                transaction.*,
+                client.nom,
+                client.numero,
+                operateur.nom AS operateur,
+                frais.frais
+            ")
+            ->join('client', 'client.id_client = transaction.id_client')
+            ->join('operateur', 'operateur.id_operateur = transaction.id_operateur')
+            ->join('frais', 'frais.id_frais = transaction.id_frais')
+            ->where('transaction.id_operateur', $idOperateur)
+            ->findAll();
+    }
+
+    public function totalFrais($idOperateur)
+    {
+        return $this->selectSum('frais.frais', 'total')
+            ->join('frais', 'frais.id_frais = transaction.id_frais')
+            ->where('transaction.id_operateur', $idOperateur)
+            ->first();
+    }
+
+    public function totalCommission($idOperateur)
+    {
+        return $this->selectSum('pourcentage_commission', 'total')
+            ->where('transaction.id_operateur', $idOperateur)
+            ->first();
+    }
+
+   public function totalMontant($idOperateur)
+{
+    return $this->selectSum('transaction.montant', 'total')
+        ->where('transaction.id_operateur', $idOperateur)
+        ->first();
+}
+    
 }

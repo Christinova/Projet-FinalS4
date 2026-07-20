@@ -156,12 +156,7 @@
             <button class="btn">
                 Valider la transaction
             </button>
-            <button class="btn2">
-                    <a href="<?= site_url('historique') ?>" class="btn operateur">
-
-                Historique des transactions
-                </a>
-            </button>
+            
         
 
 
@@ -170,6 +165,34 @@
 
     </div>
 
+
+</div>
+
+
+    <!-- Carte Actions -->
+    <div class="card card-menu">
+
+        <h2>Navigation</h2>
+
+        <p class="subtitle">
+            Accéder aux autres fonctionnalités
+        </p>
+
+        <a href="<?= site_url('historique') ?>" class="menu-btn">
+            📜 Historique des transactions
+        </a>
+
+        <a href="<?= site_url('situation') ?>" class="menu-btn">
+            💰 Situation des frais et commissions
+        </a>
+
+        <a href="<?= site_url('situation_montant') ?>" class="btn operateur">
+
+Situation des montants
+
+</a>
+
+    </div>
 
 </div>
 <script>
