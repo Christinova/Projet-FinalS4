@@ -2,27 +2,21 @@
 -Création de 7 tables: operateur, client , transfert, retrait, depot, compte, transaction
 [Sharon]
 
-[Tache en générale]
--Configuration des préfixes des opérateurs []
+Cote operateur  [Christinova] 
+-Configuration des préfixes des opérateurs [ok]
 -Configuration des différentes formes de transaction : transfers, dépôt , retrait
-(Avec des frais)[]
--Situation de gain via les frais de transaction []
--Situation de compte client []
--Login automatique avec le numéro du client sans inscription []
+(Avec des frais)[ok]
+-Situation de gain via les frais de transaction [ok]
+-Situation de compte client [ok]
+-Login automatique avec le numéro du client sans inscription [ok]
 
-Les Opérations qu'on doit être capable de faire 
--Voir solde pour le client []
--faire un dépôt : -Avec les frais dans le barem[]
-                  -Pas de code personnelle on envoie tout de suite le dépôt[]
-                  -Même chose retrait[]
-                  -Même chose transfers []
-                  -On peut voir l'historique[]
-
-
-Page opérateur:
-page déroulente : opérateur: 033 / 037 : On appuie sur 033 -> 033 [suite numéro client]
-page déroulente : différente transaction : transfers, dépôt , retrait
-
+Cote Client [Sharon]
+-Voir solde pour le client [ok]
+-faire un dépôt : -Avec les frais dans le barem[ok]
+                  -Pas de code personnelle on envoie tout de suite le dépôt[ok]
+                  -Même chose retrait[ok]
+                  -Même chose transfers [ok]
+                  -On peut voir l'historique[ok]
 
 Pour se connecter à SQLIte3
 
