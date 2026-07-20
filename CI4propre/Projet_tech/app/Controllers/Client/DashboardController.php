@@ -7,9 +7,7 @@ use App\Models\TransactionModel;
 
 class DashboardController extends BaseController
 {
-    /**
-     * Tableau de bord : affiche le solde et le menu des opérations.
-     */
+   
     public function index()
     {
         $transactionModel = new TransactionModel();

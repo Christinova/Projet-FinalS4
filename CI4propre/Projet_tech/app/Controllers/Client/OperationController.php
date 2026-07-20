@@ -8,10 +8,7 @@ use App\Models\TransactionModel;
 
 class OperationController extends BaseController
 {
-    // ------------------------------------------------------------------
-    // DEPOT
-    // ------------------------------------------------------------------
-
+    
     public function depot()
     {
         return view('client/depot');
@@ -51,10 +48,7 @@ class OperationController extends BaseController
             ->with('success', 'Dépôt de ' . $montant . ' Ar effectué.');
     }
 
-    // ------------------------------------------------------------------
-    // RETRAIT
-    // ------------------------------------------------------------------
-
+    
     public function retrait()
     {
         return view('client/retrait');
@@ -102,9 +96,7 @@ class OperationController extends BaseController
             ->with('success', 'Retrait de ' . $montant . ' Ar effectué.');
     }
 
-    // ------------------------------------------------------------------
-    // TRANSFERT
-    // ------------------------------------------------------------------
+
 
     public function transfert()
     {
@@ -154,10 +146,6 @@ class OperationController extends BaseController
                 ->with('error', 'Solde insuffisant pour effectuer ce transfert (montant + frais = ' . $totalADebiter . ' Ar, solde = ' . $solde . ' Ar).');
         }
 
-        // Le transfert est une sortie d'argent : il débite montant + frais
-        // chez l'expéditeur, exactement comme un retrait. Aucun compte
-        // n'est crédité en face ; le numéro du destinataire est conservé
-        // uniquement à titre de trace.
         $transactionModel->insert([
             'id_client'           => $idClient,
             'id_operateur'        => session('id_operateur'),

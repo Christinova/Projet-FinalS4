@@ -35,10 +35,7 @@ class TransactionModel extends Model
     ->findAll();
 }
 
-    /**
-     * Historique des transactions d'un seul client (espace client),
-     * du plus récent au plus ancien.
-     */
+
     public function getHistoriqueClient(int $idClient)
     {
         return $this->select(
@@ -56,12 +53,7 @@ class TransactionModel extends Model
         ->findAll();
     }
 
-    /**
-     * Calcule le solde d'un client à partir de son historique :
-     *  - dépôt      : crédite le montant en entier (pas de frais déduits du client)
-     *  - retrait    : débite montant + frais
-     *  - transfert  : débite montant + frais (sortie, comme un retrait)
-     */
+    
     public function getSoldeClient(int $idClient): float
     {
         $db = \Config\Database::connect();

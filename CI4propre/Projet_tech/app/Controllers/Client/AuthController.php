@@ -8,9 +8,6 @@ use App\Models\OperateurModel;
 
 class AuthController extends BaseController
 {
-    /**
-     * Affiche le formulaire de connexion (prefixe + numéro).
-     */
     public function login()
     {
         $operateurModel = new OperateurModel();
@@ -20,11 +17,7 @@ class AuthController extends BaseController
         return view('client/login', $data);
     }
 
-    /**
-     * Connexion automatique : si le numéro existe déjà, on connecte le
-     * client existant, sinon on le crée directement (pas d'inscription
-     * séparée).
-     */
+
     public function loginAction()
     {
         $clientModel    = new ClientModel();
@@ -64,9 +57,6 @@ class AuthController extends BaseController
         return redirect()->to('/client');
     }
 
-    /**
-     * Déconnexion du client.
-     */
     public function logout()
     {
         session()->destroy();
