@@ -19,4 +19,14 @@ class FraisModel extends Model
     {
         return $this->findAll();
     }
+
+    /**
+     * Trouve le barème de frais applicable à un montant donné.
+     */
+    public function findByMontant(float $montant)
+    {
+        return $this->where('montant_min <=', $montant)
+            ->where('montant_max >=', $montant)
+            ->first();
+    }
 }

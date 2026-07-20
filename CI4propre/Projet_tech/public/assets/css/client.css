@@ -1,0 +1,201 @@
+/* Reprend le même style visuel que operateur.css pour rester cohérent */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0b1026, #3b1b5a);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+}
+
+.card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    text-align: center;
+    color: #151b3b;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #25264a;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #6a0dad;
+    box-shadow: 0 0 5px #6a0dad;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    background: #6a0dad;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #4b0082;
+}
+
+.btn-secondary {
+    background: #eee;
+    color: #25264a;
+}
+
+.btn-secondary:hover {
+    background: #ddd;
+}
+
+/* Alertes */
+
+.alert {
+    padding: 12px 16px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.alert-error {
+    background: #fdecea;
+    color: #b3261e;
+    border: 1px solid #f5c2c0;
+}
+
+.alert-success {
+    background: #e7f7ec;
+    color: #1e7e34;
+    border: 1px solid #b7e4c7;
+}
+
+/* Solde */
+
+.solde-card {
+    background: linear-gradient(135deg, #6a0dad, #3b1b5a);
+    color: white;
+    border-radius: 16px;
+    padding: 25px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.solde-card .label {
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+.solde-card .montant {
+    font-size: 34px;
+    font-weight: bold;
+    margin-top: 6px;
+}
+
+.infos-client {
+    text-align: center;
+    color: #666;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+/* Menu du tableau de bord */
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.menu-item {
+    display: block;
+    padding: 20px 10px;
+    background: #f4f1fa;
+    border-radius: 14px;
+    text-align: center;
+    text-decoration: none;
+    color: #25264a;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.menu-item:hover {
+    background: #e4dbf5;
+}
+
+.menu-item .icon {
+    display: block;
+    font-size: 26px;
+    margin-bottom: 8px;
+}
+
+.link-logout {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    color: #999;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.link-logout:hover {
+    color: #b3261e;
+}
+
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #6a0dad;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}

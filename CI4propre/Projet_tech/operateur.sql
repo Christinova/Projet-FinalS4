@@ -35,6 +35,8 @@ CREATE TABLE "transaction" (
 
     montant REAL NOT NULL,
 
+    numero_destinataire TEXT,
+
     date_transaction TEXT DEFAULT CURRENT_TIMESTAMP,
 
     FOREIGN KEY(id_client) REFERENCES client(id_client),
@@ -43,3 +45,4 @@ CREATE TABLE "transaction" (
 
     FOREIGN KEY(id_frais) REFERENCES frais(id_frais)
 );
+ALTER TABLE "transaction" ADD COLUMN numero_destinataire TEXT;

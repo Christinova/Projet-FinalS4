@@ -16,4 +16,12 @@ class OperateurModel extends Model
     public function getOperateur(){
         return $this->findAll();
     }
+
+    /**
+     * Retrouve l'opérateur correspondant à un préfixe donné (ex: '033').
+     */
+    public function findByPrefixe(string $prefixe)
+    {
+        return $this->where('prefixe', $prefixe)->first();
+    }
 }
