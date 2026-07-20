@@ -1,0 +1,167 @@
+body {
+
+    margin:0;
+
+    font-family: Arial, sans-serif;
+
+    background: linear-gradient(
+        135deg,
+        #0b1026,
+        #3b1b5a
+    );
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+
+/* Conteneur */
+
+.container {
+
+    width:100%;
+
+    max-width:600px;
+
+}
+
+
+
+/* Carte */
+
+.card {
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+
+}
+
+
+
+h1 {
+
+    text-align:center;
+
+    color:#151b3b;
+
+    margin-bottom:10px;
+
+}
+
+
+.subtitle {
+
+    text-align:center;
+
+    color:#666;
+
+    margin-bottom:30px;
+
+}
+
+
+
+/* formulaire */
+
+.form-group {
+
+    margin-bottom:20px;
+
+}
+
+
+
+label {
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-weight:bold;
+
+    color:#25264a;
+
+}
+
+
+
+input,
+select {
+
+
+    width:100%;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    border:1px solid #ccc;
+
+    font-size:15px;
+
+}
+
+
+
+input:focus,
+select:focus {
+
+    outline:none;
+
+    border-color:#6a0dad;
+
+    box-shadow:0 0 5px #6a0dad;
+
+}
+
+
+
+/* bouton */
+
+.btn {
+
+
+    width:100%;
+
+    padding:14px;
+
+
+    background:#6a0dad;
+
+    color:white;
+
+
+    border:none;
+
+    border-radius:10px;
+
+
+    font-size:16px;
+
+    cursor:pointer;
+
+
+    transition:0.3s;
+
+}
+
+
+
+.btn:hover {
+
+
+    background:#4b0082;
+
+}

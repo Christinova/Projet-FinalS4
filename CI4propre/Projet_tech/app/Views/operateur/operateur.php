@@ -2,60 +2,137 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Opérateur</title>
+    <title>Gestion des transactions</title>
+
+    <link rel="stylesheet" href="<?= base_url('assets/css/operateur.css') ?>">
 </head>
+
 <body>
 
-<h2>Ajouter une transaction</h2>
+<div class="container">
 
-<form action="<?= site_url('operateur/ajouter') ?>" method="post">
+    <div class="card">
 
-    <label>ID Client</label><br>
-    <input type="number" name="id_client" required><br><br>
+        <h1>Gestion des transactions</h1>
 
-    <label>Montant</label><br>
-    <input type="number" step="0.01" name="montant" required><br><br>
+        <p class="subtitle">
+            Effectuer une opération mobile money
+        </p>
 
-    <label>Type</label><br>
-    <select name="type_transaction">
-        <option value="depot">Dépôt</option>
-        <option value="retrait">Retrait</option>
-        <option value="transfert">Transfert</option>
-    </select>
 
-    <br><br>
+        <form action="<?= site_url('operateur/ajouter') ?>" method="post">
 
-    <button type="submit">Ajouter</button>
 
-</form>
+            <div class="form-group">
+                <label>Nom de l'opérateur</label>
 
-<hr>
+                <select name="id_operateur" required>
+                    <option value="">-- Choisir un opérateur --</option>
 
-<h2>Liste des transactions</h2>
+                    <?php foreach ($operateur as $operateurs): ?>
 
-<table border="1" cellpadding="5">
+                    <option value="<?= $operateurs['id_operateur'] ?>">
+                        <?= esc($operateurs['nom']) ?>
+                    </option>
 
-<tr>
-    <th>ID</th>
-    <th>Client</th>
-    <th>Montant</th>
-    <th>Type</th>
-    <th>Date</th>
-</tr>
+                    <?php endforeach; ?>
 
-<?php foreach($transactions as $transaction): ?>
+                </select>
+            </div>
 
-<tr>
-    <td><?= esc($transaction['id_transaction']) ?></td>
-    <td><?= esc($transaction['id_client']) ?></td>
-    <td><?= esc($transaction['montant']) ?></td>
-    <td><?= esc($transaction['type_transaction']) ?></td>
-    <td><?= esc($transaction['date_transaction']) ?></td>
-</tr>
 
-<?php endforeach; ?>
 
-</table>
+            <div class="form-group">
+
+                <label>Préfixe</label>
+
+                <select name="prefixe" required>
+
+                    <option value="">
+                        -- Choisir le préfixe --
+                    </option>
+
+
+                    <?php foreach ($operateur as $operateurs): ?>
+
+                    <option value="<?= $operateurs['prefixe'] ?>">
+                        <?= esc($operateurs['prefixe']) ?>
+                    </option>
+
+                    <?php endforeach; ?>
+
+                </select>
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label>Numéro du client</label>
+
+                <input 
+                    type="text"
+                    name="numero"
+                    maxlength="7"
+                    placeholder="Exemple : 1234567"
+                    required>
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label>Montant (Ar)</label>
+
+                <input 
+                    type="number"
+                    name="montant"
+                    placeholder="Exemple : 5000"
+                    required>
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label>Type de transaction</label>
+
+                <select name="type_transaction">
+
+                    <option value="depot">
+                        Dépôt
+                    </option>
+
+                    <option value="retrait">
+                        Retrait
+                    </option>
+
+                    <option value="transfert">
+                        Transfert
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <button class="btn">
+                Valider la transaction
+            </button>
+
+
+        </form>
+
+
+    </div>
+
+
+</div>
+
 
 </body>
 </html>

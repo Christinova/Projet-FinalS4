@@ -1,23 +1,19 @@
 <?php
 
 namespace App\Models;
-
 use CodeIgniter\Model;
 
 class OperateurModel extends Model
 {
-    protected $table = 'transaction';
-    protected $primaryKey = 'id_transaction';
+    protected $table = 'operateur';
+    protected $primaryKey = 'id_operateur';
 
     protected $allowedFields = [
-        'id_client',
-        'montant',
-        'type_transaction',
-        'date_transaction'
+        'nom',
+        'prefixe'
     ];
 
-    public function getTransactions()
-    {
+    public function getOperateur(){
         return $this->findAll();
     }
 }

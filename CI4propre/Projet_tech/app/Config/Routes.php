@@ -7,5 +7,4 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'OperateurController::index');
 $routes->post('operateur/ajouter', 'OperateurController::ajouter');
-
-
+$routes->get('historique', 'HistoriqueTransaction::index');
