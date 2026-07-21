@@ -22,7 +22,8 @@ class OperateurController extends BaseController
         $data['operateur'] = $operateurModel->getOperateur();
 
         return view('operateur/operateur', $data);
-    }public function ajouter()
+    }
+    public function ajouter()
 {
     $clientModel = new ClientModel();
     $transactionModel = new TransactionModel();
